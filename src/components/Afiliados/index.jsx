@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import FAQ from "../FAQ";
+import FAQ from "../FQA";
 import SocialMediaButtons from "../SocialMediaButtons";
 
 const Container = styled.div`
