@@ -1,3 +1,4 @@
+/* Estilos existentes */
 html,
 body {
   height: 100%;
@@ -33,16 +34,63 @@ footer {
 }
 
 .logo-mercado-pago {
-  height: 40x;
+  height: 40px;
   width: 150px;
 }
 
 .logo-usdt {
-  height: 40x;
+  height: 40px;
   width: 150px;
 }
 
 .logo-astropay {
-  height: 35x;
+  height: 35px;
   width: 120px;
+}
+
+/* Ajustes de estilo para el footer */
+footer {
+  padding: 1rem;
+}
+
+/* Ajustes de estilo para los enlaces y listas */
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 767px) {
+  .icon-hover {
+    margin: 0.5rem; /* Ajuste de margen para íconos en móviles */
+    font-size: 1.25rem; /* Tamaño de ícono más pequeño en móviles */
+  }
+
+  footer {
+    padding: 0.5rem; /* Reduce el padding en móviles */
+  }
+
+  .logo-mercado-pago,
+  .logo-usdt,
+  .logo-astropay {
+    height: 30px;
+    width: auto; /* Ajuste automático del ancho para mantener la proporción */
+  }
+
+  .text-right {
+    text-align: center; /* Centra el contenido en móviles */
+  }
+
+  .form-select {
+    font-size: 0.75rem; /* Tamaño de fuente más pequeño para selects en móviles */
+    margin-top: 0.5rem;
+  }
+
+  .text-center p {
+    font-size: 0.875rem; /* Tamaño de fuente más pequeño para el texto en móviles */
+  }
 }
