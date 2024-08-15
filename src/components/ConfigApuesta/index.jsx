@@ -1,12 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
+// Estilos en JS usando styled-components
 const BetSettingsWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #1b1e27;
   padding: 20px;
+  background-color: #1b1e27;
   border-radius: 10px;
 `;
 
@@ -15,11 +13,10 @@ const InputGroup = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin-right: 20px;
   background-color: #212433;
-  padding: 15px; /* Increased padding */
+  padding: 15px;
   border-radius: 5px;
-  flex: 1; /* Make sure it takes up available space */
+  flex: 1;
 `;
 
 const InputWrapper = styled.div`
@@ -27,13 +24,13 @@ const InputWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px; /* Increased margin */
-  width: 100%; /* Make sure it takes up the full width of InputGroup */
+  margin-bottom: 15px;
+  width: 100%;
 `;
 
 const InputTitle = styled.span`
   color: #fff;
-  font-size: 16px; /* Increased font size */
+  font-size: 16px;
   margin-right: 10px;
 `;
 
@@ -41,20 +38,17 @@ const InputField = styled.input`
   background-color: transparent;
   border: none;
   color: #20ff00;
-  font-size: 24px; /* Increased font size */
-  width: 100%; /* Make sure it takes up full width of InputWrapper */
+  font-size: 24px;
+  width: 100%;
   text-align: right;
-  -moz-appearance: textfield; /* Remove arrows in Firefox */
-  appearance: textfield; /* Remove arrows in other browsers */
+  appearance: textfield;
 
-  /* Hide spin buttons */
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
 
-  /* Disable outline */
   &:focus {
     outline: none;
   }
@@ -62,7 +56,7 @@ const InputField = styled.input`
 
 const Currency = styled.span`
   color: #20ff00;
-  font-size: 16px; /* Increased font size */
+  font-size: 16px;
   margin-left: 5px;
 `;
 
@@ -77,13 +71,13 @@ const IncrementButton = styled.button`
   color: #fff;
   border: none;
   border-radius: 50%;
-  width: 40px; /* Increased button size */
-  height: 40px; /* Increased button size */
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 5px;
-  font-size: 20px; /* Increased font size */
+  font-size: 20px;
 `;
 
 const BetButton = styled.button`
@@ -91,9 +85,10 @@ const BetButton = styled.button`
   color: #000;
   border: none;
   border-radius: 5px;
-  width: 100%; /* Make sure it takes up full width of the container */
-  height: 60px; /* Increased height */
-  font-size: 24px; /* Increased font size */
+  width: 100%;
+  height: 60px;
+  font-size: 24px;
+  margin-top: 10px;
 `;
 
 const ConfigApuesta = ({ betAmount, setBetAmount }) => {
