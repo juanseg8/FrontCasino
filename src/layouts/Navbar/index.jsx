@@ -52,7 +52,7 @@ function MyNavbar() {
       >
         <Container>
           <Navbar.Brand href="#home">
-            <img src="./logo.png" alt="logo" className="logo" />
+            <img src="./logo.jpg" alt="logo" className="logo" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

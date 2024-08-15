@@ -98,7 +98,7 @@ function TopBar() {
       <Link to="/afiliados" className="ms-3">
         Afiliados
       </Link>
-      <a href="" className="ms-3">
+      <a href="#" className="ms-3">
         Contactanos
       </a>
       <FontAwesomeIcon icon={faDiscord} size="m" className="icon-hover ms-4" />

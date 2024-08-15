@@ -82,12 +82,12 @@ function Footer() {
             <h5>Enlaces Útiles</h5>
             <ul className="list-unstyled">
               <li>
-                <a href="/about" className="text-white">
+                <a href="#" className="text-white">
                   Acerca de Nosotros
                 </a>
               </li>
               <li>
-                <a href="/services" className="text-white">
+                <a href="#" className="text-white">
                   Servicios
                 </a>
               </li>
@@ -97,7 +97,7 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/terms" className="text-white">
+                <a href="#" className="text-white">
                   Términos y Condiciones
                 </a>
               </li>
