@@ -9,6 +9,7 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import "./styles.css";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -92,9 +93,9 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/privacidaddatospersonales" className="text-white">
+                <Link to="/privacidaddatospersonales" className="text-white">
                   Privacidad y gestion de datos personales
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="#" className="text-white">
