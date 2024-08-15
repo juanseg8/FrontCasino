@@ -6,12 +6,20 @@ const MediaWrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px;
+
+  @media (max-width: 768px) {
+    padding: 10px; /* Menos padding en pantallas pequeñas */
+  }
 `;
 
 const Media = styled.img`
-  width: 100%;
+  max-width: 100%; /* Asegura que la imagen no exceda el contenedor */
   height: auto;
   border-radius: 20px;
+
+  @media (max-width: 768px) {
+    max-width: 90%; /* Ajuste del ancho máximo en pantallas pequeñas */
+  }
 `;
 
 const MediaDisplay = ({ type, src }) => {

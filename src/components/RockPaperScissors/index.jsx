@@ -11,11 +11,21 @@ const StyledContainer = styled(Container)`
   padding: 20px;
   margin-top: 20px;
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+    margin-top: 10px;
+  }
 `;
 
 const StyledButtonGroup = styled(Row)`
   margin: 20px 0;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const shakeAnimation = keyframes`
@@ -40,12 +50,17 @@ const ImageButton = styled(Button)`
   }
 
   img {
-    width: 200px;
-    height: 200px;
+    width: 120px; /* Ajuste del tamaño para pantallas grandes */
+    height: 120px; /* Ajuste del tamaño para pantallas grandes */
     border-radius: 50%;
     transition: border 0.3s ease;
     animation: ${(props) => (props.active ? shakeAnimation : "none")} 0.5s
       infinite;
+
+    @media (max-width: 768px) {
+      width: 80px; /* Tamaño ajustado para pantallas pequeñas */
+      height: 80px; /* Tamaño ajustado para pantallas pequeñas */
+    }
   }
 `;
 
@@ -53,6 +68,11 @@ const StyledBetContainer = styled(Row)`
   margin: 20px 0;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
 `;
 
 const RockPaperScissors = ({ user, setGifSrc }) => {
@@ -70,7 +90,6 @@ const RockPaperScissors = ({ user, setGifSrc }) => {
       };
       const { data } = await playRockPaperScissors(token, gameData);
 
-      // Determinar el GIF basado en el resultado y la elección del usuario
       let gifSrc = "";
       let soundSrc = "";
 
@@ -91,14 +110,12 @@ const RockPaperScissors = ({ user, setGifSrc }) => {
         soundSrc = "./lose.mp3";
       }
 
-      // Llamar a setGifSrc con el GIF del resultado
       setGifSrc(gifSrc);
 
       // Reproducir sonido
       const audio = new Audio(soundSrc);
       audio.play();
 
-      // Opcional: Limpiar el resultado después de un tiempo
       setTimeout(() => {
         setGifSrc("./AnimacionRPS.gif");
       }, 3000); // Pausa de 3 segundos antes de ocultar la imagen
@@ -111,7 +128,7 @@ const RockPaperScissors = ({ user, setGifSrc }) => {
     <StyledContainer>
       <Form onSubmit={handleSubmit}>
         <StyledButtonGroup>
-          <Col>
+          <Col xs="auto">
             <ImageButton
               active={choice === "rock"}
               onClick={() => setChoice("rock")}
@@ -119,7 +136,7 @@ const RockPaperScissors = ({ user, setGifSrc }) => {
               <img src={"./rock.png"} alt="rock" />
             </ImageButton>
           </Col>
-          <Col>
+          <Col xs="auto">
             <ImageButton
               active={choice === "paper"}
               onClick={() => setChoice("paper")}
@@ -127,7 +144,7 @@ const RockPaperScissors = ({ user, setGifSrc }) => {
               <img src={"./paper.png"} alt="paper" />
             </ImageButton>
           </Col>
-          <Col>
+          <Col xs="auto">
             <ImageButton
               active={choice === "scissors"}
               onClick={() => setChoice("scissors")}

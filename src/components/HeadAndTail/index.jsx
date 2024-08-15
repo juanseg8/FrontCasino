@@ -5,6 +5,7 @@ import { Form, Container, Button, Row, Col } from "react-bootstrap";
 import ConfigApuesta from "../../components/ConfigApuesta";
 import MediaDisplay from "../../components/MediaDisplay";
 
+// Fondo animado para el contenedor principal
 const StyledContainer = styled(Container)`
   background-color: #1b1e27; /* Fondo oscuro */
   color: #fff; /* Texto blanco */
@@ -12,11 +13,21 @@ const StyledContainer = styled(Container)`
   padding: 20px;
   margin-top: 20px;
   text-align: center; /* Centra el texto */
+
+  @media (max-width: 768px) {
+    padding: 10px;
+    margin-top: 10px;
+  }
 `;
 
 const StyledButtonGroup = styled(Row)`
   margin: 20px 0;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const shakeAnimation = keyframes`
@@ -42,12 +53,17 @@ const ImageButton = styled(Button)`
   }
 
   img {
-    width: 200px; /* Ajusta el tamaño según sea necesario */
-    height: 200px; /* Ajusta el tamaño según sea necesario */
+    width: 150px; /* Tamaño ajustado */
+    height: 150px; /* Tamaño ajustado */
     border-radius: 100%;
     transition: border 0.3s ease;
     animation: ${(props) => (props.active ? shakeAnimation : "none")} 0.5s
       infinite;
+
+    @media (max-width: 768px) {
+      width: 100px;
+      height: 100px;
+    }
   }
 `;
 
@@ -55,6 +71,11 @@ const StyledBetContainer = styled(Row)`
   margin: 20px 0;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
 `;
 
 const HeadAndTail = ({ user, setGifSrc }) => {
@@ -110,7 +131,7 @@ const HeadAndTail = ({ user, setGifSrc }) => {
     <StyledContainer>
       <Form onSubmit={handleSubmit}>
         <StyledButtonGroup>
-          <Col>
+          <Col xs="auto">
             <ImageButton
               active={choice === "head"}
               onClick={() => setChoice("head")}
@@ -118,7 +139,7 @@ const HeadAndTail = ({ user, setGifSrc }) => {
               <img src={"./head.png"} alt="Head" />
             </ImageButton>
           </Col>
-          <Col>
+          <Col xs="auto">
             <ImageButton
               active={choice === "tail"}
               onClick={() => setChoice("tail")}

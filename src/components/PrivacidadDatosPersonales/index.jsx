@@ -2,23 +2,46 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  margin: 200px;
-  padding-left: 20px;
-  padding-right: 20px;
+  margin: 20px;
+  padding: 0 20px;
   color: #ffffff;
+
+  @media (min-width: 768px) {
+    margin: 50px;
+  }
+
+  @media (min-width: 1024px) {
+    margin: 100px;
+  }
 `;
 
 const Title = styled.h1`
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   margin-bottom: 1rem;
   color: #ffd700;
   text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 3rem;
+  }
 `;
 
 const Paragraph = styled.p`
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 1rem;
   text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const PrivacyContent = () => {

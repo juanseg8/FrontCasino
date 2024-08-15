@@ -11,11 +11,21 @@ const StyledContainer = styled(Container)`
   padding: 20px;
   margin-top: 20px;
   text-align: center; /* Centra el texto */
+
+  @media (max-width: 768px) {
+    padding: 10px;
+    margin-top: 10px;
+  }
 `;
 
 const StyledButtonGroup = styled(Row)`
   margin: 20px 0;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const shakeAnimation = keyframes`
@@ -41,12 +51,17 @@ const ImageButton = styled(Button)`
   }
 
   img {
-    width: 150px; /* Ajusta el tamaño según sea necesario */
-    height: 150px; /* Ajusta el tamaño según sea necesario */
+    width: 120px; /* Tamaño ajustado */
+    height: 120px; /* Tamaño ajustado */
     border-radius: 100%;
     transition: border 0.3s ease;
     animation: ${(props) => (props.active ? shakeAnimation : "none")} 0.5s
       infinite;
+
+    @media (max-width: 768px) {
+      width: 80px;
+      height: 80px;
+    }
   }
 `;
 
@@ -54,6 +69,11 @@ const StyledBetContainer = styled(Row)`
   margin: 20px 0;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
 `;
 
 const DiceRolling = ({ user, setGifSrc }) => {
@@ -102,7 +122,7 @@ const DiceRolling = ({ user, setGifSrc }) => {
       <Form onSubmit={handleSubmit}>
         <StyledButtonGroup>
           {[1, 2, 3, 4, 5, 6].map((number) => (
-            <Col key={number}>
+            <Col xs="auto" key={number}>
               <ImageButton
                 active={choice === number.toString()}
                 onClick={() => setChoice(number.toString())}

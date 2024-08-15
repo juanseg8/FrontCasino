@@ -1,32 +1,64 @@
 import React from "react";
 import styled from "styled-components";
-import FAQ from "../FQA";
+import FAQ from "../FAQ";
 import SocialMediaButtons from "../SocialMediaButtons";
 
 const Container = styled.div`
-  margin: 200px;
-  padding-left: 20px;
-  padding-right: 20px;
+  margin: 20px;
+  padding: 0 20px;
   color: #ffffff; /* Cambiar el color del texto a blanco para mejor contraste */
+
+  @media (min-width: 768px) {
+    margin: 50px;
+  }
+
+  @media (min-width: 1024px) {
+    margin: 100px;
+  }
 `;
 
 const Title = styled.h1`
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
   color: #ffd700; /* Color dorado para resaltar */
   text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 3rem;
+  }
 `;
 
 const Subtitle = styled.h2`
-  font-size: 2rem;
-  margin-top: 5rem;
+  font-size: 1.5rem;
+  margin-top: 3rem;
   margin-bottom: 2rem;
   color: #ffd700; /* Color dorado para resaltar */
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 2.5rem;
+  }
 `;
 
 const Paragraph = styled.p`
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 1rem;
+
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const ButtonContainer = styled.div`
@@ -39,7 +71,7 @@ const ButtonContainer = styled.div`
 
 const Button = styled.button`
   padding: 10px 20px;
-  font-size: 1.5rem;
+  font-size: 1rem;
   cursor: pointer;
   border: none;
   background-color: #ffd700;
@@ -49,6 +81,14 @@ const Button = styled.button`
 
   &:hover {
     background-color: #e4c204;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.5rem;
   }
 `;
 
@@ -71,9 +111,9 @@ const AffiliateContent = () => {
       <ButtonContainer className="mt-5">
         <Button>Cuota de ingreso</Button>
         <Button>CPA</Button>
-        <Button>Hibrido</Button>
+        <Button>Híbrido</Button>
       </ButtonContainer>
-      <Subtitle>Por que Infinity</Subtitle>
+      <Subtitle>Por qué Infinity</Subtitle>
       <ButtonContainer>
         <Button>Ingresos de por vida</Button>
         <Button>Comisiones flexibles</Button>
@@ -88,7 +128,7 @@ const AffiliateContent = () => {
         electrónico indicada a continuación.
       </Paragraph>
       <FAQ />
-      <Subtitle>Contactanos</Subtitle>
+      <Subtitle>Contáctanos</Subtitle>
       <SocialMediaButtons />
     </Container>
   );
