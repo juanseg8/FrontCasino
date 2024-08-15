@@ -2,3 +2,12 @@
   height: auto;
   width: 150px;
 }
+
+.navbar {
+  margin-bottom: 0; /* Asegúrate de que el margen inferior sea 0 */
+  padding: 0; /* Asegúrate de que el relleno sea 0 */
+}
+
+.navbar .container {
+  padding: 0; /* Asegúrate de que el relleno en el contenedor sea 0 */
+}
