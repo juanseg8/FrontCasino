@@ -1,3 +1,4 @@
+/* Estilos existentes */
 .icon-hover {
   transition: color 0.3s ease;
 }
@@ -48,4 +49,37 @@
 
 .animated-button {
   animation: blink 2s infinite; /* Aplica la animación 'blink' durante 2 segundos y la repite infinitamente */
+}
+
+/* Ajustes adicionales para la barra superior */
+.navbar-dark {
+  padding: 0.5rem 1rem;
+}
+
+/* Personalización de botones */
+.btn-custom {
+  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem;
+}
+
+/* Ajustes de margen y padding para formularios en dispositivos móviles */
+@media (max-width: 767px) {
+  .form-inline .form-control {
+    margin-bottom: 0.5rem;
+  }
+
+  .navbar {
+    padding: 0.5rem; /* Reduce el padding en móviles */
+  }
+
+  .btn-custom,
+  .btn-logout {
+    font-size: 0.75rem; /* Tamaño de texto más pequeño en móviles */
+    min-width: 80px; /* Ajuste del tamaño mínimo del botón en móviles */
+    height: 28px; /* Ajuste de la altura en móviles */
+  }
+
+  .icon-hover {
+    margin-left: 0.5rem; /* Ajuste de margen para íconos en móviles */
+  }
 }
