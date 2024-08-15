@@ -15,12 +15,13 @@
     height: auto; /* Permite que el contenedor ajuste su altura en móviles */
     margin-top: 1rem; /* Reduce el margen superior en móviles */
     gap: 0.5rem; /* Reduce el espacio entre cartas en móviles */
+    justify-content: space-around; /* Distribuye las cartas a lo largo del contenedor */
   }
 
   /* Ajuste de tamaño de las cartas en móviles */
   .CartaJuego {
-    width: 100%; /* Las cartas ocupan el ancho completo del contenedor */
-    max-width: 300px; /* Ancho máximo para las cartas */
+    width: 30%; /* Las cartas ocupan un 30% del ancho del contenedor */
+    max-width: 150px; /* Ancho máximo para las cartas en móviles */
     margin: 0.5rem; /* Reduce el margen alrededor de las cartas */
   }
 }

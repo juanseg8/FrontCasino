@@ -19,6 +19,7 @@ const CardContainer = styled.div`
     height: auto; /* Permite que el contenedor ajuste su altura en móviles */
     margin-top: 1rem; /* Reduce el margen superior en móviles */
     gap: 0.5rem; /* Reduce el espacio entre cartas en móviles */
+    justify-content: space-around; /* Distribuye las cartas a lo largo del contenedor */
   }
 `;
 
