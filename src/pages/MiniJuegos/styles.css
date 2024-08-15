@@ -1,0 +1,26 @@
+/* Estilos básicos para el contenedor de cartas */
+.CardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra las cartas horizontalmente */
+  align-items: center;
+  gap: 1rem; /* Espacio entre las cartas */
+  margin-top: 2rem; /* Espacio superior para separar del fondo animado */
+  height: 70vh;
+}
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 767px) {
+  .CardContainer {
+    height: auto; /* Permite que el contenedor ajuste su altura en móviles */
+    margin-top: 1rem; /* Reduce el margen superior en móviles */
+    gap: 0.5rem; /* Reduce el espacio entre cartas en móviles */
+  }
+
+  /* Ajuste de tamaño de las cartas en móviles */
+  .CartaJuego {
+    width: 100%; /* Las cartas ocupan el ancho completo del contenedor */
+    max-width: 300px; /* Ancho máximo para las cartas */
+    margin: 0.5rem; /* Reduce el margen alrededor de las cartas */
+  }
+}

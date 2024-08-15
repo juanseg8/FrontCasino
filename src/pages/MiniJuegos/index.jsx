@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import AnimatedBackground from "../../components/FondoAnimado";
 import CartaJuego from "../../components/CartaJuego";
-import ConfigApuesta from "../../components/ConfigApuesta";
+import "./styles.css";
 
 // Definición del contenedor de cartas
 const CardContainer = styled.div`
@@ -13,6 +13,13 @@ const CardContainer = styled.div`
   gap: 1rem; /* Espacio entre las cartas */
   margin-top: 2rem; /* Espacio superior para separar del fondo animado */
   height: 70vh;
+
+  /* Responsividad para dispositivos móviles */
+  @media (max-width: 767px) {
+    height: auto; /* Permite que el contenedor ajuste su altura en móviles */
+    margin-top: 1rem; /* Reduce el margen superior en móviles */
+    gap: 0.5rem; /* Reduce el espacio entre cartas en móviles */
+  }
 `;
 
 const games = [
