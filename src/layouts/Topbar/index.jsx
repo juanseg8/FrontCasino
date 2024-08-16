@@ -192,15 +192,13 @@ function TopBar() {
                 Iniciar sesión
               </Button>
               {!isRegistroPage && (
-                <Link to="/register">
-                  <Button
-                    size="sm"
-                    variant="warning"
-                    className="mx-1 btn-custom mt-2 mt-lg-0"
-                  >
-                    Registrarse
-                  </Button>
-                </Link>
+                <Button
+                  size="sm"
+                  variant="warning"
+                  className="mx-1 btn-custom mt-2 mt-lg-0"
+                >
+                  Registrarse
+                </Button>
               )}
             </Form>
           )}
