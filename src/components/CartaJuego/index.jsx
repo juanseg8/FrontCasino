@@ -28,12 +28,6 @@ const StyledCard = styled(Card)`
   &:hover .card-img-top {
     opacity: 0.8;
   }
-
-  @media (max-width: 767px) {
-    width: 30%; /* Las cartas ocupan un 30% del ancho del contenedor */
-    max-width: 150px; /* Ancho máximo para las cartas en móviles */
-    margin: 0.5rem; /* Reduce el margen alrededor de las cartas */
-  }
 `;
 
 const CardImg = styled(Card.Img)`
