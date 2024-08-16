@@ -5,18 +5,21 @@ import supportImage from "../../../public/logoSoporte.png";
 import { useHelpChat } from "../../contexts/ChatAyudaContext";
 
 const HelpChatWrapper = styled.div`
-  position: fixed; /* Cambiado a fixed para mantenerse en la misma posición al hacer scroll */
+  position: absolute;
   bottom: 70px;
   right: 22px;
-  width: ${(props) => (props.isOpen ? "300px" : "60px")};
-  height: ${(props) => (props.isOpen ? "400px" : "60px")};
+  width: ${(props) =>
+    props.isOpen ? "300px" : "60px"}; /* Adjust width for open/closed state */
+  height: ${(props) =>
+    props.isOpen ? "400px" : "60px"}; /* Adjust height for open/closed state */
   display: flex;
   flex-direction: column;
   border: 1px solid #ccc;
-  border-radius: ${(props) => (props.isOpen ? "10px" : "50%")};
+  border-radius: ${(props) =>
+    props.isOpen ? "10px" : "50%"}; /* Rounded when closed */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background-color: #fff;
-  z-index: 2000;
+  z-index: 2000; /* Ensure it stays on top */
   transition: all 0.3s ease;
   overflow: hidden;
   transform: ${(props) =>
@@ -26,25 +29,27 @@ const HelpChatWrapper = styled.div`
 const HelpChatHeader = styled.div`
   background-color: #007bff;
   color: white;
-  padding: ${(props) => (props.isOpen ? "10px" : "15px")};
-  border-radius: ${(props) => (props.isOpen ? "10px" : "50%")};
+  padding: ${(props) =>
+    props.isOpen ? "10px" : "15px"}; /* Adjust padding based on state */
+  border-radius: ${(props) =>
+    props.isOpen ? "10px" : "50%"}; /* Rounded when closed */
   cursor: pointer;
+  position: relative;
+  z-index: 1;
+  text-align: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
 `;
 
 const CloseButton = styled.div`
   font-size: 20px;
   cursor: pointer;
+  color: #fff;
 `;
 
 const SupportImage = styled.img`
-  width: ${(props) =>
-    props.isOpen
-      ? "30px"
-      : "40px"}; /* Ajustar tamaño en estado abierto/cerrado */
+  width: 30px; /* Adjust as needed */
   height: auto;
   border-radius: 50%;
 `;
