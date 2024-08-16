@@ -10,6 +10,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import io from "socket.io-client";
+import { useNavigate } from "react-router-dom";
 
 const socket = io("http://localhost:5000");
 
@@ -23,6 +24,10 @@ function TopBar() {
   const [error, setError] = useState(null);
   const token = localStorage.getItem("token");
   const [balance, setBalance] = useState(0);
+
+  const handleRegister = () => {
+    navigate("/register");
+  };
 
   useEffect(() => {
     if (token) {
@@ -196,6 +201,7 @@ function TopBar() {
                   size="sm"
                   variant="warning"
                   className="mx-1 btn-custom mt-2 mt-lg-0"
+                  onClick={handleRegister}
                 >
                   Registrarse
                 </Button>
