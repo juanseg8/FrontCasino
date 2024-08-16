@@ -25,6 +25,7 @@ import Administrador from "./pages/Administrador";
 import Afiliados from "./pages/Afiliados";
 import { UserProvider } from "./contexts/UserContext";
 import PrivacidadDatosPersonales from "./pages/PrivacidadDatosPersonales";
+import { HelpChatProvider } from "./contexts/ChatAyudaContext";
 
 const AppLayout = ({ children, includeFooter = true }) => (
   <>
@@ -72,9 +73,11 @@ const AppContent = () => {
 function App() {
   return (
     <UserProvider>
-      <Router>
-        <AppContent />
-      </Router>
+      <HelpChatProvider>
+        <Router>
+          <AppContent />
+        </Router>
+      </HelpChatProvider>
     </UserProvider>
   );
 }

@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./styles.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import { useHelpChat } from "../../contexts/ChatAyudaContext";
 import axios from "axios";
 import io from "socket.io-client";
 
@@ -23,10 +24,7 @@ function TopBar() {
   const [error, setError] = useState(null);
   const token = localStorage.getItem("token");
   const [balance, setBalance] = useState(0);
-
-  const handleRegister = () => {
-    navigate("/register");
-  };
+  const { setHelpChatOpen } = useHelpChat();
 
   useEffect(() => {
     if (token) {
@@ -99,115 +97,103 @@ function TopBar() {
       className="navbar-dark"
       expand="lg"
     >
-      <div className="d-flex flex-column flex-lg-row justify-content-between align-items-center w-100">
-        <div className="d-flex flex-row align-items-center">
-          <Link to="/afiliados" className="ms-3 text-white">
-            Afiliados
-          </Link>
-          <a href="#" className="ms-3 text-white">
-            Contactanos
-          </a>
-          <FontAwesomeIcon
-            icon={faDiscord}
-            size="m"
-            className="icon-hover ms-4"
-          />
-          <FontAwesomeIcon
-            icon={faWhatsapp}
-            size="m"
-            className="icon-hover ms-3"
-          />
-        </div>
+      <Link to="/afiliados" className="ms-3">
+        Afiliados
+      </Link>
+      <a
+        href="#"
+        className="ms-3"
+        onClick={(e) => {
+          e.preventDefault();
+          setHelpChatOpen(true); // Abre el chat de ayuda
+        }}
+      >
+        Contactanos
+      </a>
+      <FontAwesomeIcon icon={faDiscord} size="m" className="icon-hover ms-4" />
+      <FontAwesomeIcon icon={faWhatsapp} size="m" className="icon-hover ms-3" />
 
-        <div className="d-flex flex-row justify-content-end align-items-center mt-2 mt-lg-0">
-          {userData ? (
-            <div className="d-flex text-white">
-              {!isRegistroPage && (
-                <Button
-                  size="sm"
-                  variant="danger"
-                  className="mx-1 btn-logout"
-                  onClick={handleLogout}
-                >
-                  <FontAwesomeIcon icon={faPowerOff} className="me-2" />
-                </Button>
-              )}
-
-              <div className="d-flex">
-                <Button variant="secondary" className="btn-custom mx-1">
-                  <div className="d-flex text-white align-items-center h-100">
-                    {balance} ARS
-                  </div>
-                </Button>
-
-                <Button variant="secondary" className="btn-custom mx-1">
-                  <div className="d-flex text-white align-items-center h-100">
-                    <FontAwesomeIcon icon={faUser} className="me-2" />
-                    {userData.userName}
-                  </div>
-                </Button>
-              </div>
-
-              {!isRegistroPage && (
-                <Link to="/depositos" className="nav-link">
-                  <Button
-                    size="sm"
-                    variant="primary"
-                    className="mx-1 btn-custom animated-button"
-                  >
-                    Depositar
-                  </Button>
-                </Link>
-              )}
-            </div>
-          ) : (
-            <Form
-              inline
-              className="d-flex flex-column flex-lg-row"
-              onSubmit={handleLogin}
-            >
-              <InputGroup className="mx-1">
-                <Form.Control
-                  size="sm"
-                  placeholder="Teléfono"
-                  aria-label="Teléfono"
-                  aria-describedby="basic-addon1"
-                  value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
-                />
-              </InputGroup>
-              <InputGroup className="mx-1">
-                <Form.Control
-                  size="sm"
-                  type="password"
-                  placeholder="Contraseña"
-                  aria-label="Contraseña"
-                  aria-describedby="basic-addon1"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </InputGroup>
+      <div className="d-flex justify-content-end w-100">
+        {userData ? (
+          <div className="d-flex text-white mx-1 mt-2">
+            {!isRegistroPage && (
               <Button
                 size="sm"
-                variant="primary"
-                className="mx-1 btn-custom mt-2 mt-lg-0"
-                type="submit"
+                variant="danger"
+                className="mx-1 btn-logout"
+                onClick={handleLogout}
               >
-                Iniciar sesión
+                <FontAwesomeIcon icon={faPowerOff} className="me-2" />
               </Button>
-              {!isRegistroPage && (
+            )}
+
+            <div className="d-flex">
+              <Button variant="secondary" className="btn-custom mx-1">
+                <div className="d-flex text-white align-items-center h-100">
+                  {balance} ARS
+                </div>
+              </Button>
+
+              <Button variant="secondary" className="btn-custom mx-1">
+                <div className="d-flex text-white align-items-center h-100">
+                  <FontAwesomeIcon icon={faUser} className="me-2" />
+                  {userData.userName}
+                </div>
+              </Button>
+            </div>
+
+            {!isRegistroPage && (
+              <Link to="/depositos" className="nav-link">
                 <Button
                   size="sm"
-                  variant="warning"
-                  className="mx-1 btn-custom mt-2 mt-lg-0"
-                  onClick={handleRegister}
+                  variant="primary"
+                  className="mx-1 btn-custom animated-button"
                 >
+                  Depositar
+                </Button>
+              </Link>
+            )}
+          </div>
+        ) : (
+          <Form inline className="d-flex" onSubmit={handleLogin}>
+            <InputGroup className="mx-1">
+              <Form.Control
+                size="sm"
+                placeholder="Teléfono"
+                aria-label="Teléfono"
+                aria-describedby="basic-addon1"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+              />
+            </InputGroup>
+            <InputGroup className="mx-1">
+              <Form.Control
+                size="sm"
+                type="password"
+                placeholder="Contraseña"
+                aria-label="Contraseña"
+                aria-describedby="basic-addon1"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </InputGroup>
+            <Button
+              size="sm"
+              variant="primary"
+              className="mx-1 btn-custom"
+              type="submit"
+            >
+              Iniciar sesión
+            </Button>
+            {!isRegistroPage && (
+              <Link to="/register">
+                <Button size="sm" variant="warning" className="mx-1 btn-custom">
                   Registrarse
                 </Button>
-              )}
-            </Form>
-          )}
-        </div>
+              </Link>
+            )}
+          </Form>
+        )}
       </div>
     </Navbar>
   );

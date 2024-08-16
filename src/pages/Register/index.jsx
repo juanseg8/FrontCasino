@@ -131,20 +131,24 @@ function RegisterPage() {
               />
             </Form.Group>
 
-            <Form.Group controlId="formIsAdult" className="mt-4">
-              <Form.Check
-                type="checkbox"
-                label="Confirmo que soy mayor de edad"
-                checked={isAdult}
-                onChange={handleIsAdultChange}
-                required
-              />
-            </Form.Group>
-
             <Form.Group controlId="formAcceptTerms" className="mt-4">
               <Form.Check
                 type="checkbox"
-                label="Acepto los términos y condiciones"
+                label={
+                  <>
+                    Acepto la{" "}
+                    <a
+                      href="/privacidaddatospersonales"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Política de Privacidad
+                    </a>{" "}
+                    y los <a href="#">Términos y condiciones</a>. No se me
+                    prohíbe apostar según las autoridades locales y tengo al
+                    menos 18 años.
+                  </>
+                }
                 checked={acceptTerms}
                 onChange={handleAcceptTermsChange}
                 required

@@ -1,25 +1,22 @@
-// components/HelpChat.js
 import React, { useState } from "react";
 import styled from "styled-components";
 import { FaTimes } from "react-icons/fa";
 import supportImage from "../../../public/logoSoporte.png";
+import { useHelpChat } from "../../contexts/ChatAyudaContext";
 
 const HelpChatWrapper = styled.div`
-  position: absolute;
+  position: fixed; /* Cambiado a fixed para mantenerse en la misma posición al hacer scroll */
   bottom: 70px;
   right: 22px;
-  width: ${(props) =>
-    props.isOpen ? "300px" : "60px"}; /* Adjust width for open/closed state */
-  height: ${(props) =>
-    props.isOpen ? "400px" : "60px"}; /* Adjust height for open/closed state */
+  width: ${(props) => (props.isOpen ? "300px" : "60px")};
+  height: ${(props) => (props.isOpen ? "400px" : "60px")};
   display: flex;
   flex-direction: column;
   border: 1px solid #ccc;
-  border-radius: ${(props) =>
-    props.isOpen ? "10px" : "50%"}; /* Rounded when closed */
+  border-radius: ${(props) => (props.isOpen ? "10px" : "50%")};
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background-color: #fff;
-  z-index: 2000; /* Ensure it stays on top */
+  z-index: 2000;
   transition: all 0.3s ease;
   overflow: hidden;
   transform: ${(props) =>
@@ -29,27 +26,25 @@ const HelpChatWrapper = styled.div`
 const HelpChatHeader = styled.div`
   background-color: #007bff;
   color: white;
-  padding: ${(props) =>
-    props.isOpen ? "10px" : "15px"}; /* Adjust padding based on state */
-  border-radius: ${(props) =>
-    props.isOpen ? "10px" : "50%"}; /* Rounded when closed */
+  padding: ${(props) => (props.isOpen ? "10px" : "15px")};
+  border-radius: ${(props) => (props.isOpen ? "10px" : "50%")};
   cursor: pointer;
-  position: relative;
-  z-index: 1;
-  text-align: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 `;
 
 const CloseButton = styled.div`
   font-size: 20px;
   cursor: pointer;
-  color: #fff;
 `;
 
 const SupportImage = styled.img`
-  width: 30px; /* Adjust as needed */
+  width: ${(props) =>
+    props.isOpen
+      ? "30px"
+      : "40px"}; /* Ajustar tamaño en estado abierto/cerrado */
   height: auto;
   border-radius: 50%;
 `;
@@ -75,8 +70,8 @@ const Bubble = styled.div`
 const HelpChat = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [expandedIndex, setExpandedIndex] = useState(null);
+  const { isHelpChatOpen, setHelpChatOpen } = useHelpChat();
 
-  // Define your questions and answers here
   const qas = [
     {
       text: "¿Cómo deposito fondos en mi cuenta?",
@@ -131,7 +126,7 @@ const HelpChat = () => {
       answer: "Pronto.",
       isQuestion: true,
     },
-    // Agrega más preguntas y respuestas aquí
+    // Agrega más preguntas y respuestas aquí
   ];
 
   const handleQuestionClick = (index) => {
@@ -139,12 +134,15 @@ const HelpChat = () => {
   };
 
   return (
-    <HelpChatWrapper isOpen={isOpen}>
-      <HelpChatHeader isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? (
+    <HelpChatWrapper isOpen={isHelpChatOpen}>
+      <HelpChatHeader
+        isOpen={isHelpChatOpen}
+        onClick={() => setHelpChatOpen(!isHelpChatOpen)} // Usa el contexto para abrir/cerrar
+      >
+        {isHelpChatOpen ? (
           <>
             <SupportImage src={supportImage} alt="Support" />
-            <CloseButton>
+            <CloseButton onClick={() => setHelpChatOpen(false)}>
               <FaTimes />
             </CloseButton>
           </>
@@ -152,7 +150,7 @@ const HelpChat = () => {
           <SupportImage src={supportImage} alt="Support" />
         )}
       </HelpChatHeader>
-      <HelpChatBody isOpen={isOpen}>
+      <HelpChatBody isOpen={isHelpChatOpen}>
         {qas.map((qa, index) => (
           <div key={index}>
             <Bubble isQuestion onClick={() => handleQuestionClick(index)}>
