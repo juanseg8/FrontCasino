@@ -13,8 +13,8 @@ const StyledContainer = styled(Container)`
   text-align: center; /* Centra el texto */
 
   @media (max-width: 768px) {
-    padding: 10px;
-    margin-top: 10px;
+    padding: 0.5rem;
+    margin: 0.5rem auto;
   }
 `;
 

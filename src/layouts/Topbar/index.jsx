@@ -10,7 +10,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import io from "socket.io-client";
-import { useNavigate } from "react-router-dom";
 
 const socket = io("http://localhost:5000");
 
